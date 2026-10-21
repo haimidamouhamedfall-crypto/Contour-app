@@ -5,14 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>محاكي الخرائط الكونتورية</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#07131b">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="محاكي الكونتور">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<script src="three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 :root{
   --bg:#07131b; --surface:#0c202d; --edge:#1a3646; --ink:#e8f2f3; --dim:#8ea9b6;
@@ -1939,7 +1932,6 @@ async function omRiver() {
 el('rain').addEventListener('input', () => { if (!OM.busy && OM.field) { OM.field = null; OM.fv++; } });
 el('omBtn').onclick = omRain; el('omMode').onchange = omApply; el('omBed').onchange = () => { OM.busy = true; el('rain').dispatchEvent(new Event('input')); OM.busy = false; }; el('rvBtn').onclick = omRiver;
 
-if ('serviceWorker' in navigator && /^https?:/.test(location.protocol)) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 /* ---------- start ---------- */
 try { initGlobe(); } catch (e) {
   el('glegend').style.display = 'none'; document.querySelector('.hint').style.display = 'none'; el('gDetail').style.display = 'none'; el('dpBack').style.display = 'none';
